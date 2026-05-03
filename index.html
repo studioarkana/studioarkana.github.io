@@ -1,0 +1,1000 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Studio Arcana — Nail Design & Baralho Cigano</title>
+  <meta name="description" content="Nail design artístico e tiragens de baralho cigano. Beleza que vai além da superfície. Agende sua experiência." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    /* ─── TOKENS ─────────────────────────────────── */
+    :root {
+      --night:   #100820;
+      --deep:    #1E0D3A;
+      --purple:  #5C3D8F;
+      --violet:  #8B5FC0;
+      --lilac:   #C4A0E8;
+      --gold:    #C9963A;
+      --gold-lt: #E8C87A;
+      --cream:   #F5ECD8;
+      --parchm:  #FBF5E6;
+      --muted:   #9B85B8;
+      --white:   #FFFFFF;
+      --card-bg: #1A0B30;
+      --card-br: rgba(140,95,192,0.25);
+      --gold-br: rgba(201,150,58,0.4);
+      --r:       10px;
+      --r-lg:    16px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Jost', sans-serif;
+      background: var(--night);
+      color: var(--cream);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ─── STAR FIELD ─────────────────────────────── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        radial-gradient(1px 1px at 15% 20%, rgba(255,255,255,0.6) 0%, transparent 100%),
+        radial-gradient(1px 1px at 42% 8%,  rgba(255,255,255,0.4) 0%, transparent 100%),
+        radial-gradient(1px 1px at 70% 35%, rgba(255,255,255,0.5) 0%, transparent 100%),
+        radial-gradient(1px 1px at 88% 12%, rgba(255,255,255,0.3) 0%, transparent 100%),
+        radial-gradient(1px 1px at 5%  60%, rgba(255,255,255,0.4) 0%, transparent 100%),
+        radial-gradient(1px 1px at 60% 75%, rgba(255,255,255,0.3) 0%, transparent 100%),
+        radial-gradient(1px 1px at 30% 90%, rgba(255,255,255,0.5) 0%, transparent 100%),
+        radial-gradient(1.5px 1.5px at 80% 55%, rgba(201,150,58,0.5) 0%, transparent 100%),
+        radial-gradient(1px 1px at 50% 50%, rgba(255,255,255,0.2) 0%, transparent 100%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ─── LAYOUT ─────────────────────────────────── */
+    .wrap { max-width: 1080px; margin: 0 auto; padding: 0 1.5rem; position: relative; z-index: 1; }
+
+    /* ─── HEADER / NAV ───────────────────────────── */
+    header {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(16,8,32,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--gold-br);
+    }
+    .nav-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1rem 1.5rem; max-width: 1080px; margin: 0 auto;
+    }
+    .logo {
+      font-family: 'Cinzel', serif;
+      font-size: 1.15rem; font-weight: 500;
+      color: var(--gold-lt);
+      letter-spacing: 0.2em;
+      text-decoration: none;
+    }
+    .logo span { color: var(--lilac); font-weight: 400; }
+    nav { display: flex; gap: 2rem; align-items: center; }
+    nav a {
+      font-family: 'Cinzel', serif;
+      font-size: 0.65rem; letter-spacing: 0.15em;
+      color: var(--muted); text-decoration: none;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    nav a:hover { color: var(--gold-lt); }
+    .nav-cta {
+      background: var(--gold) !important;
+      color: var(--night) !important;
+      padding: 0.45rem 1.1rem !important;
+      border-radius: 100px !important;
+      font-weight: 500 !important;
+      transition: opacity 0.2s !important;
+    }
+    .nav-cta:hover { opacity: 0.85; }
+    .hamburger { display: none; background: none; border: none; cursor: pointer; color: var(--gold-lt); font-size: 1.4rem; }
+
+    /* ─── HERO ───────────────────────────────────── */
+    .hero {
+      padding: 6rem 1.5rem 4rem;
+      text-align: center;
+      position: relative; z-index: 1;
+    }
+    .hero-eyebrow {
+      font-family: 'Cinzel', serif;
+      font-size: 0.65rem; letter-spacing: 0.35em;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 1.25rem;
+    }
+    .hero-eyebrow::before,
+    .hero-eyebrow::after { content: ' ✦ '; opacity: 0.7; }
+    .hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.4rem, 6vw, 4rem);
+      font-weight: 300;
+      color: var(--white);
+      line-height: 1.15;
+      margin-bottom: 1.25rem;
+    }
+    .hero h1 em {
+      font-style: italic;
+      color: var(--gold-lt);
+    }
+    .hero-sub {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.15rem; font-style: italic;
+      color: var(--lilac);
+      max-width: 520px; margin: 0 auto 2.5rem;
+      line-height: 1.8;
+    }
+    .hero-divider {
+      width: 80px; height: 1px;
+      background: var(--gold);
+      margin: 0 auto 2.5rem;
+      opacity: 0.5;
+    }
+
+    /* ─── BUTTONS ────────────────────────────────── */
+    .btn {
+      display: inline-block;
+      font-family: 'Cinzel', serif;
+      font-size: 0.72rem; letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 0.85rem 2rem;
+      border-radius: 100px;
+      cursor: pointer;
+      border: none;
+      text-decoration: none;
+      transition: transform 0.15s, opacity 0.15s;
+    }
+    .btn:hover { transform: translateY(-1px); opacity: 0.9; }
+    .btn:active { transform: scale(0.97); }
+    .btn-primary { background: var(--gold); color: var(--night); }
+    .btn-outline {
+      background: transparent;
+      border: 1px solid var(--gold-br);
+      color: var(--gold-lt);
+    }
+    .btn-ghost {
+      background: rgba(140,95,192,0.15);
+      border: 1px solid var(--card-br);
+      color: var(--lilac);
+    }
+    .btn-wpp {
+      background: #25D366;
+      color: #fff;
+      display: inline-flex; align-items: center; gap: 0.5rem;
+    }
+
+    /* ─── SECTION TITLES ─────────────────────────── */
+    .section-head { text-align: center; margin-bottom: 3rem; }
+    .section-eyebrow {
+      font-family: 'Cinzel', serif;
+      font-size: 0.6rem; letter-spacing: 0.35em;
+      color: var(--gold); text-transform: uppercase;
+      margin-bottom: 0.75rem;
+      display: block;
+    }
+    .section-head h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      font-weight: 300; color: var(--white);
+      line-height: 1.2;
+    }
+    .section-head p {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic; color: var(--muted);
+      font-size: 1rem; margin-top: 0.6rem;
+    }
+
+    /* ─── ORNAMENTAL DIVIDER ─────────────────────── */
+    .ornament-line {
+      display: flex; align-items: center; gap: 1rem;
+      margin: 1.5rem 0;
+    }
+    .ornament-line::before,
+    .ornament-line::after {
+      content: ''; flex: 1;
+      height: 1px; background: var(--gold-br);
+    }
+    .ornament-line span {
+      color: var(--gold); font-size: 0.75rem;
+      white-space: nowrap;
+    }
+
+    /* ─── FILTER TABS ────────────────────────────── */
+    .filter-wrap {
+      display: flex; flex-wrap: wrap; justify-content: center;
+      gap: 0.5rem; margin-bottom: 2.5rem;
+    }
+    .filter-btn {
+      font-family: 'Cinzel', serif;
+      font-size: 0.62rem; letter-spacing: 0.12em;
+      color: var(--muted); background: transparent;
+      border: 1px solid rgba(140,95,192,0.2);
+      padding: 0.45rem 1.1rem; border-radius: 100px;
+      cursor: pointer; transition: all 0.2s;
+      text-transform: uppercase;
+    }
+    .filter-btn:hover { color: var(--lilac); border-color: var(--card-br); }
+    .filter-btn.active {
+      background: var(--purple); color: var(--white);
+      border-color: var(--purple);
+    }
+
+    /* ─── SERVICES GRID ──────────────────────────── */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .service-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-br);
+      border-radius: var(--r-lg);
+      padding: 1.5rem 1.5rem 1.25rem;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.2s, border-color 0.2s;
+      cursor: default;
+    }
+    .service-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--purple), transparent);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .service-card:hover { transform: translateY(-3px); border-color: rgba(140,95,192,0.5); }
+    .service-card:hover::before { opacity: 1; }
+
+    .service-card.featured {
+      border-color: var(--gold-br);
+    }
+    .service-card.featured::before {
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      opacity: 1;
+    }
+
+    .card-badge {
+      position: absolute; top: 1rem; right: 1rem;
+      font-family: 'Cinzel', serif; font-size: 0.55rem;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      background: rgba(201,150,58,0.15);
+      border: 1px solid var(--gold-br);
+      color: var(--gold);
+      padding: 0.2rem 0.6rem; border-radius: 100px;
+    }
+
+    .card-icon {
+      font-size: 1.4rem; margin-bottom: 0.75rem;
+      display: block;
+    }
+    .card-category {
+      font-family: 'Cinzel', serif; font-size: 0.58rem;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--purple); margin-bottom: 0.35rem;
+    }
+    .service-card.cat-espiritualidade .card-category { color: var(--gold); }
+
+    .card-name {
+      font-family: 'Cinzel', serif;
+      font-size: 0.95rem; font-weight: 500;
+      color: var(--white); margin-bottom: 0.6rem;
+      letter-spacing: 0.04em;
+    }
+    .card-desc {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1rem; font-style: italic;
+      color: var(--lilac); line-height: 1.75;
+      margin-bottom: 1rem;
+    }
+    .card-meta {
+      display: flex; align-items: center;
+      justify-content: space-between;
+      padding-top: 0.85rem;
+      border-top: 1px solid rgba(140,95,192,0.15);
+    }
+    .card-duration {
+      font-size: 0.75rem; color: var(--muted);
+      display: flex; align-items: center; gap: 0.3rem;
+    }
+    .card-duration::before { content: '◷'; color: var(--gold); font-size: 0.8rem; }
+
+    .book-btn {
+      font-family: 'Cinzel', serif;
+      font-size: 0.6rem; letter-spacing: 0.12em;
+      text-transform: uppercase;
+      background: transparent;
+      border: 1px solid var(--gold-br);
+      color: var(--gold-lt);
+      padding: 0.35rem 0.85rem;
+      border-radius: 100px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .book-btn:hover {
+      background: var(--gold);
+      color: var(--night);
+      border-color: var(--gold);
+    }
+
+    /* hidden for filter */
+    .service-card.hidden {
+      display: none;
+    }
+
+    /* ─── MODAL OVERLAY ──────────────────────────── */
+    .modal-overlay {
+      display: none;
+      position: fixed; inset: 0;
+      background: rgba(10,4,20,0.88);
+      backdrop-filter: blur(6px);
+      z-index: 1000;
+      align-items: center; justify-content: center;
+      padding: 1rem;
+    }
+    .modal-overlay.open { display: flex; }
+
+    .modal {
+      background: #1A0B30;
+      border: 1px solid var(--gold-br);
+      border-radius: var(--r-lg);
+      padding: 2rem;
+      max-width: 480px; width: 100%;
+      position: relative;
+      animation: modalIn 0.25s ease;
+    }
+    @keyframes modalIn {
+      from { transform: translateY(20px); opacity: 0; }
+      to   { transform: translateY(0);    opacity: 1; }
+    }
+
+    .modal-close {
+      position: absolute; top: 1rem; right: 1rem;
+      background: none; border: none; cursor: pointer;
+      color: var(--muted); font-size: 1.2rem;
+      transition: color 0.2s;
+    }
+    .modal-close:hover { color: var(--white); }
+
+    .modal-eyebrow {
+      font-family: 'Cinzel', serif;
+      font-size: 0.6rem; letter-spacing: 0.25em;
+      color: var(--gold); text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+    .modal h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem; font-weight: 300;
+      color: var(--white); margin-bottom: 0.35rem;
+    }
+    .modal-service-tag {
+      display: inline-block;
+      background: rgba(92,61,143,0.3);
+      border: 1px solid var(--card-br);
+      color: var(--lilac);
+      font-size: 0.72rem; font-family: 'Cinzel', serif;
+      letter-spacing: 0.08em;
+      padding: 0.2rem 0.7rem; border-radius: 100px;
+      margin-bottom: 1.25rem;
+    }
+
+    .form-group { margin-bottom: 1rem; }
+    .form-group label {
+      display: block;
+      font-family: 'Cinzel', serif;
+      font-size: 0.62rem; letter-spacing: 0.12em;
+      color: var(--muted); text-transform: uppercase;
+      margin-bottom: 0.4rem;
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(140,95,192,0.25);
+      border-radius: var(--r);
+      padding: 0.7rem 0.9rem;
+      color: var(--white);
+      font-family: 'Jost', sans-serif;
+      font-size: 0.88rem;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .form-group select option { background: #1A0B30; }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--violet);
+    }
+    .form-group textarea { resize: none; height: 80px; }
+
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+
+    .modal-footer { margin-top: 1.25rem; }
+    .modal-note {
+      font-size: 0.75rem; color: var(--muted);
+      margin-top: 0.75rem; text-align: center;
+      font-style: italic;
+    }
+
+    /* ─── WHY US ─────────────────────────────────── */
+    .trust-section {
+      padding: 5rem 1.5rem;
+      position: relative; z-index: 1;
+    }
+    .trust-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem; margin-top: 2rem;
+    }
+    .trust-item {
+      text-align: center;
+      padding: 1.75rem 1.25rem;
+      border: 1px solid var(--card-br);
+      border-radius: var(--r-lg);
+      background: rgba(26,11,48,0.5);
+    }
+    .trust-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3rem; font-weight: 300; color: var(--gold);
+      line-height: 1;
+      margin-bottom: 0.4rem;
+    }
+    .trust-label {
+      font-family: 'Cinzel', serif;
+      font-size: 0.65rem; letter-spacing: 0.15em;
+      color: var(--muted); text-transform: uppercase;
+    }
+
+    /* ─── BOOKING SECTION ────────────────────────── */
+    .booking-section {
+      padding: 5rem 1.5rem;
+      position: relative; z-index: 1;
+    }
+    .booking-inner {
+      background: var(--card-bg);
+      border: 1px solid var(--gold-br);
+      border-radius: 20px;
+      padding: 3rem 2rem;
+      max-width: 620px; margin: 0 auto;
+      text-align: center;
+    }
+    .booking-inner .big-icon {
+      font-size: 2.5rem; margin-bottom: 1rem; display: block;
+    }
+    .booking-inner h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem; font-weight: 300;
+      color: var(--white); margin-bottom: 0.75rem;
+    }
+    .booking-inner p {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic; color: var(--muted);
+      margin-bottom: 2rem; font-size: 1.05rem;
+    }
+    .booking-steps {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 1rem; margin-bottom: 2rem;
+    }
+    .b-step {
+      padding: 1rem 0.75rem;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(140,95,192,0.15);
+      border-radius: var(--r);
+    }
+    .b-step-num {
+      font-family: 'Cinzel', serif;
+      font-size: 1.2rem; color: var(--gold);
+      margin-bottom: 0.35rem; display: block;
+    }
+    .b-step p {
+      font-size: 0.78rem; color: var(--muted);
+      margin: 0; font-style: normal;
+    }
+
+    /* ─── FOOTER ─────────────────────────────────── */
+    footer {
+      border-top: 1px solid rgba(140,95,192,0.15);
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+      position: relative; z-index: 1;
+    }
+    footer .logo { font-size: 1rem; display: block; margin-bottom: 0.75rem; }
+    footer p {
+      font-size: 0.75rem; color: var(--muted);
+      font-family: 'Cinzel', serif; letter-spacing: 0.1em;
+    }
+    footer .footer-links {
+      display: flex; justify-content: center; gap: 2rem; margin: 1rem 0;
+    }
+    footer .footer-links a {
+      font-family: 'Cinzel', serif; font-size: 0.62rem;
+      letter-spacing: 0.12em; color: var(--muted);
+      text-decoration: none; text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    footer .footer-links a:hover { color: var(--gold-lt); }
+
+    /* ─── FLOATING WPP ───────────────────────────── */
+    .float-wpp {
+      position: fixed; bottom: 1.75rem; right: 1.75rem;
+      background: #25D366; color: #fff;
+      width: 52px; height: 52px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.5rem; text-decoration: none;
+      z-index: 200;
+      box-shadow: 0 4px 16px rgba(37,211,102,0.35);
+      transition: transform 0.2s;
+    }
+    .float-wpp:hover { transform: scale(1.08); }
+    .float-wpp-tooltip {
+      position: fixed; bottom: 2.2rem; right: 5.25rem;
+      background: var(--deep); border: 1px solid var(--gold-br);
+      color: var(--gold-lt); padding: 0.4rem 0.9rem;
+      border-radius: 100px; font-size: 0.72rem;
+      font-family: 'Cinzel', serif; letter-spacing: 0.06em;
+      white-space: nowrap; z-index: 200;
+      opacity: 0; pointer-events: none;
+      transition: opacity 0.2s;
+    }
+    .float-wpp:hover + .float-wpp-tooltip { opacity: 1; }
+
+    /* ─── SECTION SPACING ────────────────────────── */
+    .services-section {
+      padding: 5rem 1.5rem;
+      position: relative; z-index: 1;
+    }
+
+    /* ─── MOBILE ─────────────────────────────────── */
+    @media (max-width: 680px) {
+      nav { display: none; }
+      .hamburger { display: block; }
+      nav.open {
+        display: flex; flex-direction: column; align-items: flex-start;
+        position: fixed; inset: 0; top: 60px;
+        background: rgba(16,8,32,0.97); padding: 2rem;
+        gap: 1.5rem;
+      }
+      nav.open a { font-size: 0.85rem; }
+      .hero { padding: 4rem 1rem 3rem; }
+      .booking-steps { grid-template-columns: 1fr; gap: 0.5rem; }
+      .form-row { grid-template-columns: 1fr; }
+      .booking-inner { padding: 2rem 1.25rem; }
+    }
+
+    /* ─── SCROLL REVEAL ──────────────────────────── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 0.55s ease, transform 0.55s ease;
+    }
+    .reveal.visible {
+      opacity: 1; transform: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ─── HEADER ─────────────────────────────────── -->
+  <header>
+    <div class="nav-inner">
+      <a href="#" class="logo">STUDIO <span>ARCANA</span></a>
+      <button class="hamburger" onclick="toggleMenu()" aria-label="menu">☰</button>
+      <nav id="main-nav">
+        <a href="#servicos">Serviços</a>
+        <a href="#sobre">Sobre</a>
+        <a href="#agendamento" class="nav-cta">Agendar ✦</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ─── HERO ───────────────────────────────────── -->
+  <section class="hero">
+    <p class="hero-eyebrow">Nail Design &amp; Baralho Cigano</p>
+    <h1>Onde a beleza encontra<br>o <em>mistério</em></h1>
+    <div class="hero-divider"></div>
+    <p class="hero-sub">Arte nas mãos. Clareza na alma.<br>Tudo em um só lugar.</p>
+    <a href="#agendamento" class="btn btn-primary">Agendar minha experiência</a>
+    &nbsp;&nbsp;
+    <a href="#servicos" class="btn btn-outline">Ver serviços</a>
+  </section>
+
+  <!-- ─── TRUST STRIP ────────────────────────────── -->
+  <section class="trust-section" id="sobre">
+    <div class="wrap">
+      <div class="trust-grid">
+        <div class="trust-item reveal">
+          <div class="trust-num">11</div>
+          <div class="trust-label">Certificações profissionais</div>
+        </div>
+        <div class="trust-item reveal">
+          <div class="trust-num">∞</div>
+          <div class="trust-label">Designs únicos criados</div>
+        </div>
+        <div class="trust-item reveal">
+          <div class="trust-num">2</div>
+          <div class="trust-label">Universos em um só lugar</div>
+        </div>
+        <div class="trust-item reveal">
+          <div class="trust-num">★★★★★</div>
+          <div class="trust-label" style="font-size:0.58rem;">Atendimento personalizado</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── SERVICES ───────────────────────────────── -->
+  <section class="services-section" id="servicos">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="section-eyebrow">✦ O que oferecemos ✦</span>
+        <h2>Serviços & Experiências</h2>
+        <p>Cada atendimento é criado com intenção — para quem você é e o que você está vivendo.</p>
+      </div>
+
+      <!-- FILTER -->
+      <div class="filter-wrap reveal">
+        <button class="filter-btn active" data-filter="all">Todos</button>
+        <button class="filter-btn" data-filter="unhas">✦ Unhas</button>
+        <button class="filter-btn" data-filter="espiritualidade">☽ Espiritualidade</button>
+        <button class="filter-btn" data-filter="estetica">◈ Estética</button>
+      </div>
+
+      <!-- CARDS -->
+      <div class="services-grid">
+
+        <!-- Alongamento Gel -->
+        <div class="service-card cat-unhas reveal" data-category="unhas">
+          <span class="card-badge">Mais pedido</span>
+          <span class="card-icon">💅</span>
+          <div class="card-category">Unhas</div>
+          <div class="card-name">Alongamento em Gel</div>
+          <p class="card-desc">Unhas longas, brilhosas e perfeitas por semanas. O gel entrega elegância natural com acabamento que parece parte de você.</p>
+          <div class="card-meta">
+            <span class="card-duration">2–3 semanas de duração</span>
+            <button class="book-btn" onclick="openModal('Alongamento em Gel')">Agendar</button>
+          </div>
+        </div>
+
+        <!-- Acrílico -->
+        <div class="service-card cat-unhas reveal" data-category="unhas">
+          <span class="card-icon">💪</span>
+          <div class="card-category">Unhas</div>
+          <div class="card-name">Alongamento em Acrílico</div>
+          <p class="card-desc">Resistência máxima sem abrir mão da beleza. Para a vida intensa, o trabalho, os treinos — e ainda assim sempre impecável.</p>
+          <div class="card-meta">
+            <span class="card-duration">Alta durabilidade</span>
+            <button class="book-btn" onclick="openModal('Alongamento em Acrílico')">Agendar</button>
+          </div>
+        </div>
+
+        <!-- Postiças -->
+        <div class="service-card cat-unhas reveal" data-category="unhas">
+          <span class="card-icon">✨</span>
+          <div class="card-category">Unhas</div>
+          <div class="card-name">Unhas Postiças Realistas</div>
+          <p class="card-desc">Transformação instantânea. Moldadas e pintadas para parecerem parte de você — perfeitas para ensaios, festas e qualquer dia especial.</p>
+          <div class="card-meta">
+            <span class="card-duration">Pronta em até 1h</span>
+            <button class="book-btn" onclick="openModal('Unhas Postiças Realistas')">Agendar</button>
+          </div>
+        </div>
+
+        <!-- Nail Art Alternativa -->
+        <div class="service-card cat-unhas featured reveal" data-category="unhas">
+          <span class="card-badge">Especialidade</span>
+          <span class="card-icon">🎨</span>
+          <div class="card-category">Unhas</div>
+          <div class="card-name">Nail Art Alternativa</div>
+          <p class="card-desc">Dark, místico, gótico, y2k, surreal — qualquer universo que vive na sua cabeça vai parar nas suas unhas. Aqui, ousado é elogio.</p>
+          <div class="card-meta">
+            <span class="card-duration">Design personalizado</span>
+            <button class="book-btn" onclick="openModal('Nail Art Alternativa')">Agendar</button>
+          </div>
+        </div>
+
+        <!-- Nail Art Tradicional -->
+        <div class="service-card cat-unhas reveal" data-category="unhas">
+          <span class="card-icon">🌸</span>
+          <div class="card-category">Unhas</div>
+          <div class="card-name">Nail Art Tradicional</div>
+          <p class="card-desc">Flores, degradê, francesinha, glitter. O clássico levado ao próximo nível — cada detalhe pintado à mão com técnica e amor.</p>
+          <div class="card-meta">
+            <span class="card-duration">Personalizada</span>
+            <button class="book-btn" onclick="openModal('Nail Art Tradicional')">Agendar</button>
+          </div>
+        </div>
+
+        <!-- Manicure -->
+        <div class="service-card cat-unhas reveal" data-category="unhas">
+          <span class="card-icon">🤍</span>
+          <div class="card-category">Unhas</div>
+          <div class="card-name">Manicure & Pedicure</div>
+          <p class="card-desc">O básico feito com cuidado de verdade. Cutículas, acabamento, esmalte certinho. Porque o dia a dia também merece atenção.</p>
+          <div class="card-meta">
+            <span class="card-duration">Cuidado completo</span>
+            <button class="book-btn" onclick="openModal('Manicure & Pedicure')">Agendar</button>
+          </div>
+        </div>
+
+        <!-- Spa dos Pés -->
+        <div class="service-card cat-estetica reveal featured" data-category="estetica">
+          <span class="card-badge">Mais relaxante</span>
+          <span class="card-icon">🌿</span>
+          <div class="card-category">Estética</div>
+          <div class="card-name">Spa dos Pés</div>
+          <p class="card-desc">Seus pés carregam você pelo mundo. Esfoliação, hidratação profunda, massagem e esmalte — um ritual completo de cuidado e presença.</p>
+          <div class="card-meta">
+            <span class="card-duration">Ritual completo</span>
+            <button class="book-btn" onclick="openModal('Spa dos Pés')">Agendar</button>
+          </div>
+        </div>
+
+        <!-- Maquiagem -->
+        <div class="service-card cat-estetica reveal" data-category="estetica">
+          <span class="card-icon">🪄</span>
+          <div class="card-category">Estética</div>
+          <div class="card-name">Maquiagem Simples</div>
+          <p class="card-desc">Que valoriza o que você já tem. Natural, delicada ou dramática — conforme o que o momento pede.</p>
+          <div class="card-meta">
+            <span class="card-duration">Para qualquer ocasião</span>
+            <button class="book-btn" onclick="openModal('Maquiagem Simples')">Agendar</button>
+          </div>
+        </div>
+
+        <!-- Baralho -->
+        <div class="service-card cat-espiritualidade reveal featured" data-category="espiritualidade" style="border-color:var(--gold-br);">
+          <span class="card-badge">Online também</span>
+          <span class="card-icon">🔮</span>
+          <div class="card-category" style="color:var(--gold);">Espiritualidade</div>
+          <div class="card-name">Tiragem de Baralho Cigano</div>
+          <p class="card-desc">Algumas respostas não estão no Google. O baralho espelha o que você está vivendo e revela os caminhos que se abrem — nos campos do amor, trabalho e da alma.</p>
+          <div class="card-meta">
+            <span class="card-duration">30 ou 60 minutos</span>
+            <button class="book-btn" onclick="openModal('Tiragem de Baralho Cigano')" style="border-color:var(--gold-br); color:var(--gold);">Agendar</button>
+          </div>
+        </div>
+
+      </div><!-- /services-grid -->
+    </div>
+  </section>
+
+  <!-- ─── BOOKING SECTION ────────────────────────── -->
+  <section class="booking-section" id="agendamento">
+    <div class="wrap">
+      <div class="booking-inner reveal">
+        <span class="big-icon">✦</span>
+        <h2>Reserve sua experiência</h2>
+        <p>Simples, rápido e sem burocracia.<br>Em três passos você já está agendada.</p>
+
+        <div class="booking-steps">
+          <div class="b-step">
+            <span class="b-step-num">01</span>
+            <p>Escolha o serviço desejado</p>
+          </div>
+          <div class="b-step">
+            <span class="b-step-num">02</span>
+            <p>Preencha suas informações</p>
+          </div>
+          <div class="b-step">
+            <span class="b-step-num">03</span>
+            <p>Confirme pelo WhatsApp</p>
+          </div>
+        </div>
+
+        <button class="btn btn-primary" onclick="openModal('')" style="width:100%; max-width:320px;">
+          Agendar agora ✦
+        </button>
+        <p style="font-size:0.8rem; color:var(--muted); margin-top:1rem; font-style:italic; font-family:'Cormorant Garamond',serif;">
+          Política de cancelamento: avise com 24h de antecedência ♡
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── FOOTER ─────────────────────────────────── -->
+  <footer>
+    <div class="wrap">
+      <a href="#" class="logo">STUDIO <span>ARCANA</span></a>
+      <div class="footer-links">
+        <a href="#servicos">Serviços</a>
+        <a href="#agendamento">Agendar</a>
+        <a href="https://instagram.com/" target="_blank">Instagram</a>
+      </div>
+      <div class="ornament-line"><span>✦</span></div>
+      <p>O Studio Arcana não é só um lugar onde você fica bonita.<br>É onde você se lembra de quem é.</p>
+      <p style="margin-top:1rem; font-size:0.6rem; opacity:0.4;">© 2025 Studio Arcana — Todos os direitos reservados</p>
+    </div>
+  </footer>
+
+  <!-- ─── FLOAT WPP ────────────────────────────────── -->
+  <a class="float-wpp" id="float-wpp" href="#" target="_blank" aria-label="WhatsApp">
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/>
+    </svg>
+  </a>
+  <div class="float-wpp-tooltip">Falar no WhatsApp</div>
+
+  <!-- ─── MODAL ────────────────────────────────────── -->
+  <div class="modal-overlay" id="modal-overlay" onclick="handleOverlayClick(event)">
+    <div class="modal">
+      <button class="modal-close" onclick="closeModal()">✕</button>
+      <p class="modal-eyebrow">✦ Agendamento</p>
+      <h3>Reserve sua visita</h3>
+      <span class="modal-service-tag" id="modal-service-tag">Serviço selecionado</span>
+
+      <div class="form-group">
+        <label>Serviço desejado</label>
+        <select id="modal-service-select">
+          <option value="">Selecione um serviço...</option>
+          <option>Alongamento em Gel</option>
+          <option>Alongamento em Acrílico</option>
+          <option>Unhas Postiças Realistas</option>
+          <option>Nail Art Alternativa</option>
+          <option>Nail Art Tradicional</option>
+          <option>Manicure & Pedicure</option>
+          <option>Spa dos Pés</option>
+          <option>Maquiagem Simples</option>
+          <option>Tiragem de Baralho Cigano</option>
+          <option>Pacote Arcana Completo</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>Seu nome</label>
+        <input type="text" id="modal-name" placeholder="Como prefere ser chamada?" />
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>Data preferida</label>
+          <input type="date" id="modal-date" />
+        </div>
+        <div class="form-group">
+          <label>Horário preferido</label>
+          <select id="modal-time">
+            <option value="">Escolha...</option>
+            <option>09:00</option>
+            <option>10:00</option>
+            <option>11:00</option>
+            <option>13:00</option>
+            <option>14:00</option>
+            <option>15:00</option>
+            <option>16:00</option>
+            <option>17:00</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Observações (opcional)</label>
+        <textarea id="modal-obs" placeholder="Ex: referência de design, cor preferida, atendimento online para o baralho..."></textarea>
+      </div>
+
+      <div class="modal-footer">
+        <button class="btn btn-wpp" onclick="sendToWhatsApp()" style="width:100%; justify-content:center; padding:0.9rem 1rem;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+          Enviar para o WhatsApp
+        </button>
+        <p class="modal-note">Você será redirecionada para confirmar o agendamento diretamente comigo ♡</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── SCRIPTS ───────────────────────────────────── -->
+  <script>
+    // ── CONFIG — EDITE AQUI ─────────────────────────
+    const WPP_NUMBER = '5541998884906'; // Coloque o número com DDD e DDI (sem + e sem espaços)
+    // ────────────────────────────────────────────────
+
+    // Float WPP base link
+    document.getElementById('float-wpp').href =
+      `https://wa.me/${WPP_NUMBER}?text=${encodeURIComponent('Olá! Vim pelo site do Studio Arcana e gostaria de mais informações. ✦')}`;
+
+    // ── MODAL ────────────────────────────────────────
+    function openModal(serviceName) {
+      document.getElementById('modal-overlay').classList.add('open');
+      document.body.style.overflow = 'hidden';
+      if (serviceName) {
+        document.getElementById('modal-service-tag').textContent = serviceName;
+        document.getElementById('modal-service-select').value = serviceName;
+      } else {
+        document.getElementById('modal-service-tag').textContent = 'Escolha seu serviço';
+      }
+      document.getElementById('modal-date').min = new Date().toISOString().split('T')[0];
+    }
+
+    function closeModal() {
+      document.getElementById('modal-overlay').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    function handleOverlayClick(e) {
+      if (e.target === document.getElementById('modal-overlay')) closeModal();
+    }
+
+    document.getElementById('modal-service-select').addEventListener('change', function() {
+      document.getElementById('modal-service-tag').textContent = this.value || 'Escolha seu serviço';
+    });
+
+    // ── WHATSAPP SENDER ───────────────────────────────
+    function sendToWhatsApp() {
+      const service = document.getElementById('modal-service-select').value;
+      const name    = document.getElementById('modal-name').value.trim();
+      const date    = document.getElementById('modal-date').value;
+      const time    = document.getElementById('modal-time').value;
+      const obs     = document.getElementById('modal-obs').value.trim();
+
+      if (!service) { alert('Por favor, selecione um serviço.'); return; }
+      if (!name)    { alert('Por favor, informe seu nome.'); return; }
+
+      const dateFormatted = date
+        ? new Date(date + 'T12:00:00').toLocaleDateString('pt-BR')
+        : 'A combinar';
+
+      let msg = `✦ Olá! Gostaria de agendar pelo Studio Arcana ✦\n\n`;
+      msg += `👤 Nome: ${name}\n`;
+      msg += `💅 Serviço: ${service}\n`;
+      msg += `📅 Data preferida: ${dateFormatted}\n`;
+      msg += `🕐 Horário preferido: ${time || 'A combinar'}\n`;
+      if (obs) msg += `📝 Observações: ${obs}\n`;
+      msg += `\nAguardo confirmação! 🌙`;
+
+      const url = `https://wa.me/${WPP_NUMBER}?text=${encodeURIComponent(msg)}`;
+      window.open(url, '_blank');
+      closeModal();
+    }
+
+    // ── FILTER ────────────────────────────────────────
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const filter = btn.dataset.filter;
+        document.querySelectorAll('.service-card').forEach(card => {
+          if (filter === 'all' || card.dataset.category === filter) {
+            card.classList.remove('hidden');
+          } else {
+            card.classList.add('hidden');
+          }
+        });
+      });
+    });
+
+    // ── MOBILE NAV ────────────────────────────────────
+    function toggleMenu() {
+      document.getElementById('main-nav').classList.toggle('open');
+    }
+    document.querySelectorAll('#main-nav a').forEach(a => {
+      a.addEventListener('click', () => {
+        document.getElementById('main-nav').classList.remove('open');
+      });
+    });
+
+    // ── SCROLL REVEAL ─────────────────────────────────
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((e, i) => {
+        if (e.isIntersecting) {
+          setTimeout(() => e.target.classList.add('visible'), i * 60);
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
